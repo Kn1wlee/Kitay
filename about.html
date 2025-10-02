@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manhwa Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="title">
+            <a href="./index.html" class="no-hover">
+                <h1>Daniel's Manhwa Website</h1>
+            </a>
+        </div>
+        <nav>
+            <div id="dark-mode-switch">
+                <h3>Dark Mode?</h3>
+                <label class="switch center-in-container" for="dark-mode-toggle">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="nav-options"> 
+                <a href="./index.html">Home</a>
+                <a href="./manhwa.html">All Manhwa</a>
+                <a href="./about.html">About</a>
+                <!-- <a href="./login.php" id="login-link">Login</a>
+                <a href="./signup.php" id="signup-link">Signup</a>
+                <a href="./logout.php" id="logout-link" style="display: none;">Logout</a> -->
+            </div>
+            <a href="#" id="menu-icon">&#9776;</a>
+            <div id="dropdown-menu" style="display: none;">
+                <a id="close">X</a>
+                <div>
+                    <a id="top" href="./index.html">Home</a>
+                    <a href="./manhwa.html">All Manhwa</a>
+                    <a href="./about.html">About</a>
+                    <!-- <a href="./login.php" id="login-link">Login</a>
+                    <a href="./signup.php" id="signup-link">Signup</a>
+                    <a href="./logout.php" id="logout-link">Logout</a> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main style="display: flex; align-items: center;">
+        <section style="height: calc(90vh - 80px); display: flex; justify-content: left; flex-direction: column;">
+            <h1 style="font-size: 45px;">About Us</h1>
+            <p style="font-size: 25px;">My name is Daniel and I like Manhwas. Feel free to fork my repo!</p>
+        </section>
+    </main>
+    <footer>
+      <p>Copyright &copy; 2021 Manhwa Website</p>
+    </footer>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="header.js"></script> -->
+    <script src="allmanhwa.js"></script>
+    <script src="footer.js"></script>
+    <script>
+        $(document).ready(function(){
+            // STANDARD FOR ALL PAGES DUE TO HEADER //
+            // For dropdown Menu
+            $("#menu-icon").click(function() {
+                $("#dropdown-menu").slideToggle();
+            });
+
+            $("#close").click(function() {
+                $("#dropdown-menu").slideToggle();
+            });
+
+            // Dark Mode
+            const darkModeToggle = document.querySelector("#dark-mode-toggle");
+            // Check if dark mode is enabled in local storage and update the UI
+            if (localStorage.getItem("darkModeEnabled") === "true") {
+                document.body.classList.add("dark-mode");
+                darkModeToggle.checked = true;
+            }
+            darkModeToggle.addEventListener("change", () => {
+            if (darkModeToggle.checked) {
+                document.body.classList.add("dark-mode");
+                localStorage.setItem("darkModeEnabled", "true");
+            } else {
+                document.body.classList.remove("dark-mode");
+                localStorage.setItem("darkModeEnabled", "false");
+            }
+            });
+            // STANDARD FOR ALL PAGES DUE TO HEADER //
+        });
+</script>
+</html>
