@@ -1,54 +1,137 @@
   <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NovelOku Demo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Manhwa Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="logo">📚 NovelOku</div>
-    <nav>
-      <input type="text" id="search" placeholder="Axtar...">
-      <a href="#">Ana səhifə</a>
-      <a href="#">Novellər</a>
-      <a href="#">Haqqında</a>
-    </nav>
-  </header>
+    <header>
+        <div class="title">
+            <a href="./index.html" class="no-hover">
+                <h1>Daniel's Manhwa Website</h1>
+            </a>
+        </div>
+        <nav>
+            <div id="dark-mode-switch">
+                <h3>Dark Mode?</h3>
+                <label class="switch center-in-container" for="dark-mode-toggle">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="nav-options"> 
+                <a href="./index.html">Home</a>
+                <a href="./manhwa.html">All Manhwa</a>
+                <a href="./about.html">About</a>
+                <!-- <a href="./login.php" id="login-link">Login</a>
+                <a href="./signup.php" id="signup-link">Signup</a>
+                <a href="./logout.php" id="logout-link" style="display: none;">Logout</a> -->
+            </div>
+            <a href="#" id="menu-icon">&#9776;</a>
+            <div id="dropdown-menu" style="display: none;">
+                <a id="close">X</a>
+                <div>
+                    <a id="top" href="./index.html">Home</a>
+                    <a href="./manhwa.html">All Manhwa</a>
+                    <a href="./about.html">About</a>
+                    <!-- <a href="./login.php" id="login-link">Login</a>
+                    <a href="./signup.php" id="signup-link">Signup</a>
+                    <a href="./logout.php" id="logout-link">Logout</a> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="featured-manhwa">
+            <h2>Top Manhwa</h2>
+            <ul>
+                <li>
+                    <a class="box" href="https://lightningdegree.com/">
+                        <img src="./images/lightningdegree.jpg" alt="Manhwa 1">
+                        <h3>Lightning Degree</h3>
+                        <p>Current Chapter: 132</p>
+                        <p>Latest Chapter: 150</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="box" href="https://leveling-solo.org/">
+                        <img src="./images/sololeveling.jpg" alt="Manhwa 1">
+                        <h3>Solo Leveling</h3>
+                        <p>Current Chapter: 184</p>
+                        <p>Latest Chapter: New Side Stories!! (2/22/2023): 186</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="box" href="https://www.asurascans.com/manga/1672760368-return-of-the-mount-hua-sect/">
+                        <img src="./images/mounthuasect.png" alt="Manhwa 1">
+                        <h3>Return of the Mount Hua Sect</h3>
+                        <p>Current Chapter: 72</p>
+                        <p>Latest Chapter: 72.5</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
 
-  <main>
-    <section id="novel-list">
-      <!-- Novellər burda göstəriləcək -->
-    </section>
-  </main>
+        <section id="latest-chapters">
+            <h2>Latest 3 Currently Reading</h2>
+            <ul>
+                <li>
+                    <h3>1: TBD</h3>
+                    <p>Chapter ?</p>
+                    <a href="./manhwa.html">Read</a>
+                </li>
+                <li>
+                    <h3>2: TBD</h3>
+                    <p>Chapter ?</p>
+                    <a href="./manhwa.html">Read</a>
+                </li>
+                <li>
+                    <h3>3: TBD</h3>
+                    <p>Chapter ?</p>
+                    <a href="./manhwa.html">Read</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="header.js"></script> -->
+    <script src="footer.js"></script>
+    <script>
+    $(document).ready(function(){
+        // STANDARD FOR ALL PAGES DUE TO HEADER //
+        // For dropdown Menu
+        $("#menu-icon").click(function() {
+            $("#dropdown-menu").slideToggle();
+            $("#menu-icon").hide();
+        });
 
-  <aside id="chat-box">
-    <h3>💬 Söhbət</h3>
-    <div id="messages"></div>
-    <input type="text" id="chat-input" placeholder="Mesaj yaz...">
-    <button onclick="sendMessage()">Göndər</button>
-  </aside>
+        $("#close").click(function() {
+            $("#dropdown-menu").slideToggle();
+            $("#menu-icon").show();
+        });
 
-  <button id="add-btn" onclick="openAdmin()">➕ Yeni Novel</button>
+        // Dark Mode
+        const darkModeToggle = document.querySelector('#dark-mode-toggle');
+        // Check if dark mode is enabled in local storage and update the UI
+        if (localStorage.getItem("darkModeEnabled") === "true") {
+            document.body.classList.add("dark-mode");
+            darkModeToggle.checked = true;
+        }
 
-  <!-- Admin Panel -->
-  <div id="admin-panel" class="hidden">
-    <h3>Yeni Novel Əlavə Et</h3>
-    <input type="text" id="novel-title" placeholder="Başlıq"><br>
-    <select id="novel-status">
-      <option>Güncel</option>
-      <option>Çeviriliyor</option>
-      <option>Tamamlandı</option>
-    </select><br>
-    <input type="file" id="novel-img"><br>
-    <button onclick="addNovel()">Əlavə Et</button>
-    <button onclick="closeAdmin()">Bağla</button>
-  </div>
-
-  <footer>
-    <p>© 2025 NovelOku Demo</p>
-  </footer>
-
-  <script src="script.js"></script>
+        darkModeToggle.addEventListener("change", () => {
+        if (darkModeToggle.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("darkModeEnabled", "true");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("darkModeEnabled", "false");
+        }
+        });
+        // STANDARD FOR ALL PAGES DUE TO HEADER //
+    });
+    </script>
 </body>
 </html>
