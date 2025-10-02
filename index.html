@@ -2,35 +2,140 @@
 <html lang="az">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Novel Oku</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:0; }
+    .section { background:white; padding:15px; margin:10px; border-radius:8px; box-shadow:0 0 5px rgba(0,0,0,0.2);}
+    h1,h2,h3 { color:#333; }
+    input, textarea { width:100%; margin:5px 0; padding:8px; }
+    button { padding:8px 15px; margin-top:5px; cursor:pointer; }
+    .novel { cursor:pointer; padding:10px; border-bottom:1px solid #ccc; }
+    #chapter-content img { max-width:100%; display:block; margin:10px 0; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Novel Oku</h1>
-    <nav>
-      <a href="admin.html">Admin Paneli</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="novel-list">
-      <h2>Romanlar</h2>
-      <div id="novels"></div>
-    </section>
+<h1>Novel Oku</h1>
 
-    <section id="reader" style="display:none;">
-      <button id="back">Geri</button>
-      <h2 id="novel-title"></h2>
-      <img id="novel-cover" src="" alt="Cover">
-      <p id="novel-description"></p>
-      <h3>Bölümlər</h3>
-      <ul id="chapter-list"></ul>
-      <div id="chapter-content"></div>
-    </section>
-  </main>
+<!-- Admin Panel -->
+<div class="section" id="adminPanel">
+  <h2>Yeni Roman Əlavə Et</h2>
+  <input type="text" id="novelTitle" placeholder="Roman başlığı">
+  <input type="text" id="novelAuthor" placeholder="Müəllif">
+  <input type="text" id="novelCover" placeholder="Şəkil URL">
+  <textarea id="novelDesc" placeholder="Qısa təsvir"></textarea>
+  <button onclick="addNovel()">Əlavə et</button>
+</div>
 
-  <script src="script.js"></script>
+<div class="section" id="chapterAdmin" style="display:none;">
+  <h2>Yeni Bölüm Əlavə Et</h2>
+  <input type="text" id="chapterTitleInput" placeholder="Bölüm başlığı">
+  <input type="text" id="chapterImageInput" placeholder="Bölüm şəkil URL (istəyə bağlı)">
+  <textarea id="chapterContentInput" placeholder="Bölüm mətni"></textarea>
+  <button onclick="addChapter()">Əlavə et</button>
+</div>
+
+<!-- Roman Siyahısı -->
+<div id="novels" class="section"></div>
+
+<!-- Oxucu Paneli -->
+<div id="reader" class="section" style="display:none;">
+  <h2 id="novel-title"></h2>
+  <img id="novel-cover" src="" alt="" style="max-width:100%;">
+  <p id="novel-description"></p>
+  <ul id="chapter-list"></ul>
+  <div id="chapter-content"></div>
+  <button id="back">Geri</button>
+</div>
+
+<script>
+  // Əvvəlki script.js + admin JS funksiyaları birləşdirilib
+let novels = JSON.parse(localStorage.getItem("novels") || "[]");
+let currentNovelIndex = null;
+
+function saveNovels(){ localStorage.setItem("novels", JSON.stringify(novels)); }
+
+function renderNovels(){
+  const novelListDiv = document.getElementById("novels");
+  novelListDiv.innerHTML = "";
+  novels.forEach((novel,nIndex)=>{
+    const div = document.createElement("div");
+    div.className="novel";
+    div.innerHTML=`<img src="${novel.cover || ''}" alt=""><h3>${novel.title}</h3><p>${novel.author}</p>`;
+    div.onclick = ()=>openNovel(nIndex);
+    novelListDiv.appendChild(div);
+  });
+}
+renderNovels();
+
+function addNovel(){
+  const title = document.getElementById("novelTitle").value.trim();
+  const author = document.getElementById("novelAuthor").value.trim();
+  const cover = document.getElementById("novelCover").value.trim();
+  const desc = document.getElementById("novelDesc").value.trim();
+  if(!title) return alert("Başlıq lazımdır!");
+  novels.push({title, author, description:desc, cover, chapters:[]});
+  saveNovels(); renderNovels();
+  document.getElementById("novelTitle").value="";
+  document.getElementById("novelAuthor").value="";
+  document.getElementById("novelCover").value="";
+  document.getElementById("novelDesc").value="";
+}
+
+function openNovel(nIndex){
+  currentNovelIndex=nIndex;
+  document.getElementById("chapterAdmin").style.display="block";
+  document.getElementById("reader").style.display="block";
+  showChapterList();
+  showChapter(0);
+}
+
+function showChapterList(){
+  const chapterListDiv = document.getElementById("chapter-list");
+  const novel = novels[currentNovelIndex];
+  chapterListDiv.innerHTML="";
+  if(novel.chapters.length===0){
+    chapterListDiv.innerHTML="<i>Heç bir bölüm yoxdur.</i>";
+    document.getElementById("novel-title").innerText = novel.title;
+    document.getElementById("novel-description").innerText = novel.description;
+    return;
+  }
+  novel.chapters.forEach((ch,cIndex)=>{
+    const div = document.createElement("li");
+    div.innerText=ch.title;
+    div.onclick=()=>showChapter(cIndex);
+    chapterListDiv.appendChild(div);
+  });
+}
+
+function showChapter(cIndex){
+  const chapter = novels[currentNovelIndex].chapters[cIndex];
+  const chapterContent = document.getElementById("chapter-content");
+  chapterContent.innerHTML = `
+    <h3>${chapter.title}</h3>
+    ${chapter.image ? `<img src="${chapter.image}" alt="${chapter.title}">` : ""}
+    <p>${chapter.content}</p>
+  `;
+}
+
+function addChapter(){
+  const title = document.getElementById("chapterTitleInput").value.trim();
+  const content = document.getElementById("chapterContentInput").value.trim();
+  const image = document.getElementById("chapterImageInput").value.trim();
+  if(!title || !content) return alert("Başlıq və mətn lazımdır!");
+  novels[currentNovelIndex].chapters.push({title, content, image});
+  saveNovels(); showChapterList();
+  document.getElementById("chapterTitleInput").value="";
+  document.getElementById("chapterContentInput").value="";
+  document.getElementById("chapterImageInput").value="";
+}
+
+document.getElementById('back').addEventListener('click', () => {
+  document.getElementById('reader').style.display='none';
+  document.getElementById('chapterAdmin').style.display='none';
+});
+</script>
+
 </body>
 </html>
