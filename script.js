@@ -1,58 +1,174 @@
-// Romanların siyahısını yüklə
-function loadNovels() {
-  fetch('novels/novels.json')
-    .then(response => response.json())
-    .then(novels => {
-      const novelsContainer = document.getElementById('novels');
-      novels.forEach(novel => {
-        const novelElement = document.createElement('div');
-        novelElement.classList.add('novel');
-        novelElement.innerHTML = `
-          <img src="${novel.cover}" alt="${novel.title}">
-          <h3>${novel.title}</h3>
-          <p>${novel.author}</p>
-        `;
-        novelElement.addEventListener('click', () => openNovel(novel));
-        novelsContainer.appendChild(novelElement);
-      });
-    });
+/* Ümumi */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
 }
 
-// Romanu aç
-function openNovel(novel) {
-  document.getElementById('novel-title').innerText = novel.title;
-  document.getElementById('novel-cover').src = novel.cover;
-  document.getElementById('novel-description').innerText = novel.description;
-  
-  const chapterList = document.getElementById('chapter-list');
-  chapterList.innerHTML = '';
-  novel.chapters.forEach((chapter, index) => {
-    const chapterItem = document.createElement('li');
-    chapterItem.innerText = chapter.title;
-    chapterItem.addEventListener('click', () => openChapter(novel, index));
-    chapterList.appendChild(chapterItem);
-  });
-
-  document.getElementById('novel-list').style.display = 'none';
-  document.getElementById('reader').style.display = 'block';
+.hidden {
+  display: none;
 }
 
-// Bölümü aç
-function openChapter(novel, index) {
-  const chapter = novel.chapters[index];
-  const chapterContent = document.getElementById('chapter-content');
-  chapterContent.innerHTML = `
-    <h3>${chapter.title}</h3>
-    <img src="${chapter.image}" alt="${chapter.title}">
-    <p>${chapter.content}</p>
-  `;
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-// Geri düyməsi
-document.getElementById('back').addEventListener('click', () => {
-  document.getElementById('novel-list').style.display = 'block';
-  document.getElementById('reader').style.display = 'none';
-});
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-// Saytı yüklə
-loadNovels();
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  display: none; /* Mobile üçün JS ilə açılacaq */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav input[type="text"] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+nav button {
+  padding: 5px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Roman Grid */
+.novels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.novel-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.novel-card:hover {
+  transform: scale(1.03);
+}
+
+.novel-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.novel-card h3, .novel-card p {
+  margin: 5px 10px;
+}
+
+/* Oxucu Panel */
+#reader {
+  padding: 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#reader img {
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+#chapterList li {
+  cursor: pointer;
+  margin: 5px 0;
+  list-style: none;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+#chapterList li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Comments */
+#commentsSection {
+  margin-top: 20px;
+}
+
+#commentsSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+#commentsSection li {
+  border-bottom: 1px solid #eee;
+  padding: 5px 0;
+}
+
+#commentsSection input {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+
+#commentsSection button {
+  padding: 5px 12px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Back button */
+#backBtn {
+  margin-top: 10px;
+  padding: 5px 12px;
+  border: none;
+  background-color: #6c757d;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 8px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+                             }
