@@ -1,80 +1,174 @@
-/* Ümumi stil qaydaları */
+/* Ümumi */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
 }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-main {
-  padding: 20px;
-}
-
-#novel-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.novel {
-  width: 200px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.novel img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.novel h3 {
-  margin: 10px;
-  font-size: 18px;
-}
-
-.novel p {
-  margin: 10px;
-  font-size: 14px;
-}
-
-#reader {
+.hidden {
   display: none;
 }
 
-#chapter-list {
-  list-style-type: none;
-  padding: 0;
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-#chapter-list li {
-  background-color: #fff;
-  margin: 5px 0;
-  padding: 10px;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  display: none; /* Mobile üçün JS ilə açılacaq */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav input[type="text"] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+nav button {
+  padding: 5px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
   border-radius: 5px;
   cursor: pointer;
 }
 
-#chapter-list li:hover {
+/* Roman Grid */
+.novels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.novel-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.novel-card:hover {
+  transform: scale(1.03);
+}
+
+.novel-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.novel-card h3, .novel-card p {
+  margin: 5px 10px;
+}
+
+/* Oxucu Panel */
+#reader {
+  padding: 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#reader img {
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+#chapterList li {
+  cursor: pointer;
+  margin: 5px 0;
+  list-style: none;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+#chapterList li:hover {
   background-color: #f0f0f0;
 }
 
-#chapter-content {
+/* Comments */
+#commentsSection {
   margin-top: 20px;
 }
+
+#commentsSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+#commentsSection li {
+  border-bottom: 1px solid #eee;
+  padding: 5px 0;
+}
+
+#commentsSection input {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+
+#commentsSection button {
+  padding: 5px 12px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Back button */
+#backBtn {
+  margin-top: 10px;
+  padding: 5px 12px;
+  border: none;
+  background-color: #6c757d;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 8px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+    }
