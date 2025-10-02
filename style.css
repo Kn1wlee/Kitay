@@ -1,0 +1,80 @@
+/* Ümumi stil qaydaları */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+main {
+  padding: 20px;
+}
+
+#novel-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.novel {
+  width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.novel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.novel h3 {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.novel p {
+  margin: 10px;
+  font-size: 14px;
+}
+
+#reader {
+  display: none;
+}
+
+#chapter-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#chapter-list li {
+  background-color: #fff;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#chapter-list li:hover {
+  background-color: #f0f0f0;
+}
+
+#chapter-content {
+  margin-top: 20px;
+}
