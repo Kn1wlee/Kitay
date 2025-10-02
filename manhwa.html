@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Manhwa Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="title">
+            <a href="./index.html" class="no-hover">
+                <h1>Daniel's Manhwa Website</h1>
+            </a>
+        </div>
+        <nav>
+            <div id="dark-mode-switch">
+                <h3>Dark Mode?</h3>
+                <label class="switch center-in-container" for="dark-mode-toggle">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="nav-options"> 
+                <a href="./index.html">Home</a>
+                <a href="./manhwa.html">All Manhwa</a>
+                <a href="./about.html">About</a>
+                <!-- <a href="./login.php" id="login-link">Login</a>
+                <a href="./signup.php" id="signup-link">Signup</a>
+                <a href="./logout.php" id="logout-link" style="display: none;">Logout</a> -->
+            </div>
+            <a href="#" id="menu-icon">&#9776;</a>
+            <div id="dropdown-menu" style="display: none;">
+                <a id="close">X</a>
+                <div>
+                    <a id="top" href="./index.html">Home</a>
+                    <a href="./manhwa.html">All Manhwa</a>
+                    <a href="./about.html">About</a>
+                    <!-- <a href="./login.php" id="login-link">Login</a>
+                    <a href="./signup.php" id="signup-link">Signup</a>
+                    <a href="./logout.php" id="logout-link">Logout</a> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="page-container">
+            <section id="all-manhwa">
+                <h2><span>A</span><span>L</span><span>L</span>
+                    <span>M</span><span>A</span><span>N</span><span>H</span><span>W</span><span>A</span>
+                </h2>
+                <div id="color-scheme" style="text-align: center"><u>Color Scheme:</u> 
+                    <ul>
+                        <li>
+                            <div class='box red'></div>
+                            <p>= Hiatus</p>
+                        </li>
+                        <li>
+                            <div class='box yellow'></div>
+                            <p>= Unread</p>
+                        </li>
+                        <li>
+                            <div class='box orange'></div>
+                            <p>= Unknown Rating</p>
+                        </li>
+                        <li>
+                            <div class='box blue'></div>
+                            <p>= Completed Series</p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="sorting-header">
+                    <div id="center-options">
+                        <div class="search">
+                            <h3>Search By Title Name: </h3>
+                            <input type="text" id="search-input" placeholder="Type Here...">
+                        </div>
+                        <div id="sort-reset-container">
+                            <select id="sort-options">
+                                <option value="default">(Sort By Title/Rating)</option>
+                                <option value="alphabetical">Alphabetical</option>
+                                <option value="width-desc">Rating (High -> Low)</option>
+                                <option value="width-asc">Rating (Low -> High)</option>
+                                <option value="last-updated">Last Updated (Recent -> Oldest)</option>
+                            </select>          
+                            <select id="sort-by-class">
+                                <option value="default">(Sort By Class)</option>
+                                <option value="none">No Class</option>
+                                <option value="hiatus">Hiatus</option>
+                                <option value="unread">Unread</option>
+                                <option value="unknown-rating">Unknown Rating</option>
+                                <option value="completed">Completed Series</option>
+                            </select>
+                        </div>
+                        <button id="reset-button" class="btn-shine">
+                            <span>Reset (Clears Search and Filters)</span>
+                        </button>
+                        <div id="loading">Loading...</div>
+                    </div>
+                    
+                </div>
+                
+                <div id="manhwa-list"></div>
+            </section>
+        </div>
+    </main>
+    <div id="footer"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="header.js"></script> -->
+<script src="allmanhwa.js"></script>
+<script src="footer.js"></script>
+<script>
+    $(document).ready(function(){
+        // STANDARD FOR ALL PAGES DUE TO HEADER //
+        // For dropdown Menu
+        $("#menu-icon").click(function() {
+            $("#dropdown-menu").slideToggle();
+        });
+
+        $("#close").click(function() {
+            $("#dropdown-menu").slideToggle();
+        });
+
+        // Dark Mode
+        const darkModeToggle = document.querySelector("#dark-mode-toggle");
+        // Check if dark mode is enabled in local storage and update the UI
+        if (localStorage.getItem("darkModeEnabled") === "true") {
+            document.body.classList.add("dark-mode");
+            darkModeToggle.checked = true;
+        }
+        darkModeToggle.addEventListener("change", () => {
+        if (darkModeToggle.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("darkModeEnabled", "true");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("darkModeEnabled", "false");
+        }
+        });
+        // STANDARD FOR ALL PAGES DUE TO HEADER //
+
+        // For Sorting (Exclusive to manhwa.html)
+        var originalItems = $(".item").get();
+        $("#sort-options").change(function() {
+            var option = $(this).val();
+            sortItems(option);
+        });
+        $("#sort-by-class").change(function() {
+            var option = $(this).val();
+            sortItemsByClass(option);
+        });
+        $("#reset-button").click(function() {
+            resetItems();
+        });
+
+        function sortItems(option) {
+            $("#loading").show(); // Show loading icon
+            $("#sort-options").attr("disabled", true); // disable the sorting menu
+            var items = $(".item");
+            if (option === "alphabetical") {
+                items.sort(function(a, b) {
+                    var textA = $(a).find("h3").text();
+                    var textB = $(b).find("h3").text();
+                    return textA.localeCompare(textB);
+                });
+            } else if (option === "width-asc") {
+                items.sort(function(a, b) {
+                    var widthA = parseInt($(a).find(".progress").width());
+                    var widthB = parseInt($(b).find(".progress").width());
+                    return widthA - widthB;
+                });
+            } else if (option === "width-desc") {
+                items.sort(function(a, b) {
+                    var widthA = parseInt($(a).find(".progress").width());
+                    var widthB = parseInt($(b).find(".progress").width());
+                    return widthB - widthA;
+                });
+            } else {
+                resetItems();
+            }
+            $("#manhwa-list").empty().append(items.fadeOut(200).fadeIn(200));
+            $("#loading").hide(); // Hide loading icon
+            $("#sort-options").attr("disabled", false); // enable the sorting menu
+        }
+
+        function sortItemsByClass(option) {
+            $("#loading").show();
+            $("#sort-by-class").attr("disabled", true);
+            var items = $(".item");
+            if (option === "hiatus") {
+                items.sort(function(a, b) {
+                var classA = $(a).hasClass("hiatus");
+                var classB = $(b).hasClass("hiatus");
+                return classB - classA;
+                });
+            } else if (option === "unread") {
+                items.sort(function(a, b) {
+                var classA = $(a).hasClass("unread");
+                var classB = $(b).hasClass("unread");
+                return classB - classA;
+                });
+            } else if (option === "unknown-rating") {
+                items.sort(function(a, b) {
+                var classA = $(a).hasClass("unknown-rating");
+                var classB = $(b).hasClass("unknown-rating");
+                return classB - classA;
+                });
+            } else if (option === "completed") {
+                items.sort(function(a, b) {
+                var classA = $(a).hasClass("completed");
+                var classB = $(b).hasClass("completed");
+                return classB - classA;
+                });
+            } else if (option === "none") {
+                items.sort(function(a, b) {
+                var hasClass = function(item, className) {
+                    return $(item).hasClass(className);
+                };
+                var classA = hasClass(a, "hiatus") || hasClass(a, "unknown-rating") || hasClass(a, "completed") || hasClass(a, "completed");
+                var classB = hasClass(b, "hiatus") || hasClass(b, "unknown-rating") || hasClass(b, "completed") || hasClass(b, "completed");
+                return classB - classA;
+                });
+            } else if (option === "all") {
+                items.sort(function(a, b) {
+                var textA = $(a).find("h3").text();
+                var textB = $(b).find("h3").text();
+                return textA.localeCompare(textB);
+                });
+            } else {
+                resetItems();
+            }
+            $("#manhwa-list").empty().append(items.fadeOut(200).fadeIn(200));
+            $("#loading").hide();
+            $("#sort-by-class").attr("disabled", false);
+        }
+
+        // For the Search Function and updates count
+        const container = document.querySelector('#manhwa-list');
+        const searchInput = document.querySelector('#search-input');
+        const count = document.querySelector('#count');
+
+        searchInput.addEventListener('input', handleSearch);
+        function handleSearch() {
+            const query = searchInput.value.trim().toLowerCase();
+            const items = container.querySelectorAll('.item');
+
+            let visibleItems = 0;
+            items.forEach(item => {
+                const title = item.querySelector('h3').textContent.trim().toLowerCase();
+
+                if (title.includes(query)) {
+                    item.style.display = 'block';
+                    visibleItems++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            count.textContent = "Total Count: " + visibleItems;
+        }
+
+        searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            this.blur(); // Blur the search input element
+        }
+        });
+
+        // Clears all Filters and Search Bar
+        function resetItems() {
+            $("#manhwa-list").empty().append(originalItems);
+            $("#sort-options").val("default");
+            $("#sort-by-class").val("default");
+            const items = container.querySelectorAll('.item');
+            items.forEach(item => {
+                item.style.display = 'block';
+            });
+            count.textContent = "Total Count: " + items.length;
+            searchInput.value = '';
+        }
+        module.exports = { darkModeToggle };
+    });
+</script>
+</html>
