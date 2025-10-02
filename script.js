@@ -1,14 +1,13 @@
-// Dummy data (sonradan novels.json ilə əvəzləyə bilərsən)
 let novels = [
   {
     id:1,
     title:"Sirlər Dünyası",
     author:"Orxan",
-    cover:"images/cover1.jpg",
+    cover:"https://via.placeholder.com/200x300.png?text=Cover1",
     description:"Fantastik bir roman.",
     chapters:[
-      {title:"Bölüm 1", content:"Bölüm 1 mətni...", image:"images/ch1.jpg"},
-      {title:"Bölüm 2", content:"Bölüm 2 mətni...", image:"images/ch2.jpg"}
+      {title:"Bölüm 1", content:"Bölüm 1 mətni...", image:"https://via.placeholder.com/400x200.png?text=Chapter1"},
+      {title:"Bölüm 2", content:"Bölüm 2 mətni...", image:"https://via.placeholder.com/400x200.png?text=Chapter2"}
     ],
     comments:[]
   },
@@ -16,16 +15,15 @@ let novels = [
     id:2,
     title:"Sehirli Macəra",
     author:"Aytac",
-    cover:"images/cover2.jpg",
+    cover:"https://via.placeholder.com/200x300.png?text=Cover2",
     description:"Gizli sehr və macəra dolu.",
     chapters:[
-      {title:"Bölüm 1", content:"Bölüm 1 mətni...", image:"images/ch3.jpg"}
+      {title:"Bölüm 1", content:"Bölüm 1 mətni...", image:"https://via.placeholder.com/400x200.png?text=Chapter3"}
     ],
     comments:[]
   }
 ];
 
-// Elements
 const novelsContainer = document.getElementById("novelsContainer");
 const reader = document.getElementById("reader");
 const novelTitle = document.getElementById("novelTitle");
@@ -37,14 +35,10 @@ const commentsList = document.getElementById("commentsList");
 const commentInput = document.getElementById("commentInput");
 const addCommentBtn = document.getElementById("addCommentBtn");
 const backBtn = document.getElementById("backBtn");
-const searchInput = document.getElementById("searchInput");
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
 
 let currentNovel = null;
 let currentChapterIndex = 0;
 
-// Render novels
 function renderNovels(list){
   novelsContainer.innerHTML = "";
   list.forEach(novel=>{
@@ -59,9 +53,9 @@ function renderNovels(list){
     novelsContainer.appendChild(card);
   });
 }
+
 renderNovels(novels);
 
-// Open novel
 function openNovel(novel){
   currentNovel = novel;
   currentChapterIndex = 0;
@@ -71,25 +65,22 @@ function openNovel(novel){
   displayChapterContent(currentChapterIndex);
 }
 
-// Display novel info
 function displayNovelInfo(){
   novelTitle.textContent = currentNovel.title;
   novelCover.src = currentNovel.cover;
   novelDescription.textContent = currentNovel.description;
 }
 
-// Display chapter list
 function displayChapterList(){
   chapterList.innerHTML = "";
   currentNovel.chapters.forEach((ch,index)=>{
     const li = document.createElement("li");
     li.textContent = ch.title;
-    li.onclick = ()=>displayChapterContent(index);
+    li.onclick=()=>displayChapterContent(index);
     chapterList.appendChild(li);
   });
 }
 
-// Display chapter content
 function displayChapterContent(index){
   currentChapterIndex = index;
   const ch = currentNovel.chapters[index];
@@ -101,7 +92,6 @@ function displayChapterContent(index){
   renderComments();
 }
 
-// Comments
 function renderComments(){
   commentsList.innerHTML = "";
   currentNovel.comments.forEach(c=>{
@@ -111,7 +101,6 @@ function renderComments(){
   });
 }
 
-// Add comment
 addCommentBtn.addEventListener("click", ()=>{
   const text = commentInput.value.trim();
   if(text==="") return;
@@ -120,19 +109,6 @@ addCommentBtn.addEventListener("click", ()=>{
   commentInput.value="";
 });
 
-// Back button
 backBtn.addEventListener("click", ()=>{
   reader.classList.add("hidden");
-});
-
-// Search
-searchInput.addEventListener("input", ()=>{
-  const query = searchInput.value.toLowerCase();
-  const filtered = novels.filter(n=>n.title.toLowerCase().includes(query) || n.author.toLowerCase().includes(query));
-  renderNovels(filtered);
-});
-
-// Menu toggle (mobile)
-menuBtn.addEventListener("click", ()=>{
-  navMenu.style.display = navMenu.style.display === "flex" ? "none" : "flex";
 });
