@@ -1,18 +1,54 @@
-  <div id="novelsContainer" class="novels-grid"></div>
-<section id="reader" class="hidden">
-  <h2 id="novelTitle"></h2>
-  <img id="novelCover" src="" alt="">
-  <p id="novelDescription"></p>
-  <ul id="chapterList"></ul>
-  <div id="chapterContent"></div>
+  <!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>NovelOku Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">📚 NovelOku</div>
+    <nav>
+      <input type="text" id="search" placeholder="Axtar...">
+      <a href="#">Ana səhifə</a>
+      <a href="#">Novellər</a>
+      <a href="#">Haqqında</a>
+    </nav>
+  </header>
 
-  <!-- Yorum -->
-  <div id="commentsSection">
-    <h3>Şərhlər</h3>
-    <ul id="commentsList"></ul>
-    <input type="text" id="commentInput" placeholder="Şərh yaz...">
-    <button id="addCommentBtn">Əlavə et</button>
+  <main>
+    <section id="novel-list">
+      <!-- Novellər burda göstəriləcək -->
+    </section>
+  </main>
+
+  <aside id="chat-box">
+    <h3>💬 Söhbət</h3>
+    <div id="messages"></div>
+    <input type="text" id="chat-input" placeholder="Mesaj yaz...">
+    <button onclick="sendMessage()">Göndər</button>
+  </aside>
+
+  <button id="add-btn" onclick="openAdmin()">➕ Yeni Novel</button>
+
+  <!-- Admin Panel -->
+  <div id="admin-panel" class="hidden">
+    <h3>Yeni Novel Əlavə Et</h3>
+    <input type="text" id="novel-title" placeholder="Başlıq"><br>
+    <select id="novel-status">
+      <option>Güncel</option>
+      <option>Çeviriliyor</option>
+      <option>Tamamlandı</option>
+    </select><br>
+    <input type="file" id="novel-img"><br>
+    <button onclick="addNovel()">Əlavə Et</button>
+    <button onclick="closeAdmin()">Bağla</button>
   </div>
 
-  <button id="backBtn">Geri</button>
-</section>
+  <footer>
+    <p>© 2025 NovelOku Demo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
