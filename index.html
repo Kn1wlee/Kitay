@@ -1,28 +1,4 @@
-  <!DOCTYPE html>
-<html lang="az">
-<head>
-  <meta charset="UTF-8">
-  <title>Novel Oku</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- Header -->
-<header>
-  <div class="logo">NovelOku</div>
-  <div class="menu-icon" id="menuBtn">&#9776;</div>
-  <nav id="navMenu">
-    <input type="text" id="searchInput" placeholder="Axtarış...">
-    <button id="loginBtn">Giriş</button>
-  </nav>
-</header>
-
-<!-- Roman Siyahısı -->
-<main>
   <div id="novelsContainer" class="novels-grid"></div>
-</main>
-
-<!-- Oxucu Panel -->
 <section id="reader" class="hidden">
   <h2 id="novelTitle"></h2>
   <img id="novelCover" src="" alt="">
@@ -30,7 +6,7 @@
   <ul id="chapterList"></ul>
   <div id="chapterContent"></div>
 
-  <!-- Yorum Bölməsi -->
+  <!-- Yorum -->
   <div id="commentsSection">
     <h3>Şərhlər</h3>
     <ul id="commentsList"></ul>
@@ -40,7 +16,3 @@
 
   <button id="backBtn">Geri</button>
 </section>
-
-<script src="script.js"></script>
-</body>
-</html>
