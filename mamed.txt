@@ -1,0 +1,207 @@
+class="item"
+titlrking in the City                       ," 
+"140" (On                       , )
+"(2/15/2023                         , "")                       , : 
+notes                       , =
+ratin                       , g=60)
+
+
+                        , "45"                      , "(2/15/2023): "                   , notes=                    , "82"                  , "")                   ,
+
+"Invincible Sword Domain"                       , "110"                     , "(2/15/2023): "                       , notes=                    , "55"                  , "")               ,
+
+"Doctor's Rebirth"                      , "107"                     , "(2/15/2023): "                   , notes=                    , "88"                  , "")                   ,
+
+"Carnivorous Hunter"                        , "50"                      , "(2/15/2023): "                   , notes=                    , "82"                  , "")                   ,
+
+"Apocalyptic Thief"                         , "128"                         , "(2/15/2023): "                       , notes=                        , "72"                  , "")                   ,
+
+"My Wife is Actually the Empress?"                      , "98"                      , "(2/15/2023): "                   , notes=                    , "85"                  , "")                   ,
+
+"Seoul Station Druid"                       , "85"                      , "(2/15/2023): "                   , notes=                    , "77"                  , "")               ,
+
+"Drug Devourer"                         , "20"                      , "(2/15/2023): "                       , notes=                    , "85"                  , "")               ,
+
+"My Daughter is a Dragon!"                      , "40"                      , "(2/15/2023): "                   , notes=                    , "77"                  , "")                   ,
+
+"Super Evolution"                       , "86"                      , "(2/15/2023): "                   , notes=                    , "66"                  , "")               ,
+
+"So They Prohesized                         , I’m the Future King"                      , "0"                       , "(2/15/2023): "                   , notes=                    , "0"               , "unread"")                    ,
+
+"I’ve Been Trapped on the Same Day for Over 3000 Years"                         , "0"                       , "(2/15/2023): "                       , notes=                    , "0"                       , "unread")                     ,
+
+"Infinite Mage"                         , "21"                      , "(2/15/2023): "                       , notes=                    , "95"                  , "")               ,
+
+"Monster Pet Evolution"                         , "22"                      , "(2/15/2023): "                       , notes=                    , "68"                  , "")               ,
+
+"Pick Me Up                         , Infinite Gacha"                       , "22"                      , "(2/15/2023): "                   , notes=                    , "94"                  , "")               ,
+
+"The Lazy Swordmaster"                      , "33"                      , "(2/15/2023): "                   , notes=                    , "75"                  , "")                   ,
+
+"Tale of a Scribe Who Retires to the Countryside"                       , "~"113                    , "(2/15/2023): "                   , notes=                , "78"              , "")               ,
+
+"Memorize"                      , "100"                     , "(2/15/2023): "                   , notes=                    , "75"                  , "")                   ,
+
+"Tomb Raider King"                      , "348"                     , "(2/15/2023): "                   , notes=                    , "84"                  , "")                   ,
+
+"Past Life Regressor (2022)"                        , "19"                      , "(2/15/2023): "                   , notes=                    , "86"                  , "")                   ,
+
+"Dr. Player"                        , "21"                      , "(2/15/2023): "                   , notes=                    , "93"                  , "")                   ,
+
+"Star Instructor Master Baek"                       , "~"2?                     , "(2/15/2023): "                       , notes=                    , "75"                  , "")               ,
+
+"The Tutorial is Too Hard"                      , "92"                      , "(2/15/2023): "                   , notes=                    , "77"                  , "")                   ,
+
+"Relife Player"                         , "20"                      , "(2/15/2023): "                       , notes=                    , "90"                  , "")               ,
+
+"Poison-Eating Healer"                      , "20"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")                   ,
+
+"Boundless Necromancer"                         , "7"                       , "(2/15/2023): "                       , notes=                    , "89"                      , "")               ,
+
+"The Live"                      , "121"                     , "(2/15/2023): "                   , notes=                    , "88"                  , "")                   ,
+
+"The Earth Savior Selection"                        , "55"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")                   ,
+
+"To Hell with being a Saint                         , I’m a Doctor"                         , "43"                      , "(2/15/2023): "                       , notes=                    , "90"                  , "")               ,
+
+"Youngest Scion of the Mages"                       , "21"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "")               ,
+
+"Dungeons & Artifacts"                      , "0"                       , "(2/15/2023): "                   , notes=                    , "0"               , "unread")                 ,
+
+"I’ll Be Taking a Break for Personal Reasons"                       , "23"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")               ,
+
+"Rise from the Rubble"                      , "129"                     , "(2/15/2023): "                   , notes=                    , "77"                  , "")                   ,
+
+"World’s Strongest Troll"                       , "12"                      , "(2/15/2023): "                   , notes=                    , "92"                  , "")               ,
+
+"Demon Lord’s Martial Arts Ascension"                       , "24"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")               ,
+
+"Clever Cleaning Life of the Returned Genius Hunter"                        , "23"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "")                   ,
+
+"Nine Heavens Swordmaster"                      , "24"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")                   ,
+
+"Plundering the Heavens"                        , "0"                   , "(2/15/2023): "                       , notes=                , "0"                   , "")           ,
+
+"I’m Not That Kind of Talent"                       , "11"                      , "(2/15/2023): "                   , notes=                    , "93"                  , "")               ,
+
+"Life of a Magic Academy Mage"                      , "17"                      , "(2/15/2023): "                   , notes=                    , "82"                  , "")                   ,
+
+"Reincarnation of the Murim Clan’s Former Ranker"                       , "70"                      , "(2/15/2023): "                   , notes=                    , "85"                  , "")               ,
+asem"                       , t                     , itle =I Regressed to My Ruined Family
+last_chapter_re                         , ad= 23
+" (2/15/2023): 
+notes                       , = 
+ratin                       , g=90
+)
+---------------------------------------------------------------------------------------------------
+(hretps://www.asurascans.com/manga/1672760368-my-insanely-competent-underlings/"                        , c                     , lass="item"
+title="My Insanely Competent Underlin                       , g"s
+"                       ," 13"(2/1                      , 5/2023): 
+notes                       , = 
+"89"                        , "")                   ,
+
+"Reincarnation of the Strongest Sword God"                      , "14"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "")                   ,
+
+"Reaper of the Drifting Moon"                       , "30"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "")               ,
+
+"Reincarnated Escort Warrior"                       , "24"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "")               ,
+
+"On My Way to Kill God"                         , "6"                       , "(2/15/2023): "                       , notes=                    , "92"                      , "")               ,
+
+"Champion’s Path to Murim"                      , "22"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")                   ,
+
+"Never Die Extra"                       , "21"                      , "(2/15/2023): "                   , notes=                    , "92"                  , "")               ,
+
+"Worn and Torn Newbie"                      , "0"                       , "(2/15/2023): "                   , notes=                    , "0"               , "unread")                 ,
+
+"Warrior High School"                       , "22"                      , "(2/15/2023): "                   , notes=                    , "93"                  , "")               ,
+
+"Return of the Shattered Constellation"                         , "49"                      , "(2/15/2023): "                       , notes=                    , "93"                  , "")               ,
+
+"Archmage Transcending Through Regression"                      , "25"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")                   ,
+
+"Worthless Regression"                      , "42"                      , "(2/15/2023): "                   , notes=                    , "80"                  , "")                   ,
+
+"Transmigrating to the Otherworld Once More"                        , "30"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "")                   ,
+
+"The Greatest Estate Developer"                         , "69"                      , "(2/15/2023): "                       , notes= Best Comedy.                   , "98"                  , "")               ,
+
+"Youngest Son of the NamGung Clan"                      , "24"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")                   ,
+
+"Legend of the Northern Blade"                      , "70"                      , "(2/15/2023): "                   , notes=                    , "86"                  , "")                   ,
+
+"Chronicles Of The Martial God’s Return"                        , "45"                      , "(2/15/2023): "                   , notes=                    , "91"                  , "")                   ,
+
+"Helmut: The Forsaken Child"                        , "27"                      , "(2/15/2023): "                   , notes=                    , "88"                  , "")                   ,
+
+"Existence"                         , "7"                       , "(2/15/2023): "                       , notes= Best Intro Chapters.                   , "98"                      , "")               ,
+
+"I Became the Tyrant of a Defense Game"                         , "17"                      , "(2/15/2023): "                       , notes= Great Start so far.                    , "93"                  , "")               ,
+
+"My School Life Pretending To Be a Worthless Person"                        , "23"                      , "(2/15/2023): "                   , notes= Got boring/repetitive after first 10 chapters.                 , "85"                  , "")               ,
+
+"Return of the SSS-Class Ranker"                        , "18"                      , "(2/15/2023): "                   , notes=                    , "92"                  , "")                   ,
+
+"Standard of Reincarnation"                         , "28"                      , "(2/15/2023): "                       , notes=                    , "91"                  , "")               ,
+
+"I’m the Only One Loved by the Constellations!"                         , "0"                       , "(2/15/2023): "                       , notes=                    , "0"                       , "unread")                     ,
+
+"The Constellation That Returned From Hell"                         , "111"                         , "(2/15/2023): "                       , notes=                        , "92"                  , "")                   ,
+
+"My Path to Killing Gods in Another World"                      , "0"                       , "(2/15/2023): "                   , notes= Didn't Like on first 2 chapters read in the past.                  , "0"               , "")               ,
+
+"Absolute Sword Sense"                      , "11"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "hiatus")                     ,
+
+"One-of-a-Kind Irregular"                       , "33"                      , "(2/15/2023): "                   , notes=                    , "70"                  , "")               ,
+
+"Player Who Returned 10000 Years Later"                         , "36"                      , "(2/15/2023): "                       , notes=                    , "96"                  , "")               ,
+
+"Is this Hero for Real?"                        , "40"                      , "(2/15/2023): "                   , notes=                    , "Unknown"                     , "unknown-rating")                     ,
+
+"Solo Spell Caster"                         , "53"                      , "(2/15/2023): "                       , notes=                    , "Unknown"                 , "unknown-rating")             ,
+
+"Transcension Academy"                      , "23"                      , "(2/15/2023): "                   , notes=                    , "90"                  , "")                   ,
+
+"Return to Player"                      , "24"                      , "(2/15/2023): "                   , notes=                    , "Unknown"                 , "unknown-rating")                 ,
+
+"Ending Maker"                      , "27"                      , "(2/15/2023): "                   , notes=                    , "89"                  , "")                   ,
+
+"Player from Today Onwards"                         , "46"                      , "(2/15/2023): "                       , notes=                    , "Unknown"                 , "unknown-rating")             ,
+
+"Superhuman Battlefield"                        , "19"                      , "(2/15/2023): "                   , notes=                    , "84"                  , "")                   ,
+
+"The World after the Fall"                      , "31"                      , "(2/15/2023): "                   , notes= Light Novel = Chapter 76                   , "94"                  , "")                   ,
+
+"I Obtained a Mythic Item"                      , "10"                      , "(2/15/2023): "                   , notes=                    , "92"                  , "")                   ,
+
+"Archmage Streamer"                         , "42"                      , "(2/15/2023): "                       , notes=                    , "88"                  , "")               ,
+
+"Damn Reincarnation"                        , "40"                      , "(2/15/2023): "                   , notes=                    , "91"                  , "")                   ,
+
+"I Became a Renowned Family’s Sword Prodigy"                        , "15"                      , "(2/15/2023): "                   , notes=                    , "85"                  , "")                   ,
+
+"Hero has Returned"                         , "23"                      , "(2/15/2023): "                       , notes= Crazy story                    , dropped on asurascans however.                , "87"              , "")                   ,
+
+"The Novel's Extra (Remake)"                        , "46"                      , "(2/15/2023): "                   , notes=                    , "93"                  , "")                   ,
+
+"I Reincarnated As The Crazed Heir"                         , "63"                      , "(2/15/2023): "                       , notes=                    , "86"                  , "")               ,
+
+"Lightning Degree"                      , "132"                     , "(2/15/2023): "                   , notes=                    , "95"                  , "")                   ,
+
+"Regressor Instruction Manual"                      , "49"                      , "(2/15/2023): "                   , notes=                    , "92"                  , "")                   ,
+
+"Sword Fanatic Wanders Through The Night"                       , "6"                       , "(2/15/2023): "                   , notes=                        , "88"                  , "")                   ,
+
+"Overpowered Sword"                         , "20"                      , "(2/15/2023): "                       , notes=                    , "86"                  , "")               ,
+
+"Academy’s Undercover Professor"                        , "26"                      , "(2/15/2023): "                   , notes=                    , "93"                  , "")                   ,
+
+"Sleeping Ranker"                       , "31"                      , "(2/15/2023): 61.5"                   , notes=                    , "90"                  , "")               ,
+
+"Ganzi Monster"                         , "38"                      , "(2/17/2023): 58"                     , notes=                    , "83"                      , "")                   ,
+
+"SSS-Class Suicide Hunter"                      , "80"                      , "(2/17/2023): 80"                 , notes= Season 2 End (7/14/2022                    , "")               , "92"                  , "")                  ,
+
+"Maxed out Leveling"                        , "42"                      , "(2/17/2023): 53"                     , notes= Season 1 End (7/24/2022                , "")               , "90"              , "")                ,
+
+"Ranker's Return"                       , "50"                      , "(2/17/2023): 91"                     , notes= It says its a remake but on Reaperscans it doesn't                     , "89"                  , "")               ,
